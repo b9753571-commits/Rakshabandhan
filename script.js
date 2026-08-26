@@ -1,6 +1,6 @@
 const config = {
   brotherName: 'Kuku',
-  photo: 'https://kommodo.ai/i/5LkiVQ1YQIcOquE0R9UB',
+  photo: 'https://plain-apac-prod-public.komododecks.com/202608/26/5LkiVQ1YQIcOquE0R9UB/image.jpg',
   video: 'assets/kuku-memory.mp4',
   music: 'assets/background-music.mp3',
   message: `Happy rakshabandhan bachcha 😘🥰🫶🏻
