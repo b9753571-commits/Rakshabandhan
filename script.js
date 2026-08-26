@@ -29,11 +29,13 @@ const $ = (selector) => document.querySelector(selector);
 function init() {
   const nameNodes = document.querySelectorAll('[data-brother-name]');
   nameNodes.forEach((node) => { node.textContent = node.textContent === 'KUKU' ? config.brotherName.toUpperCase() : config.brotherName; });
-  $('#specialPhoto').src = config.photo;
-  $('#modalPhoto').src = config.photo;
-  $('#specialVideo source').src = config.video;
-  $('#backgroundMusic source').src = config.music;
-  $('#specialVideo').load();
+  try {
+    $('#specialPhoto').src = config.photo;
+    $('#modalPhoto').src = config.photo;
+    $('#specialVideo source').src = config.video;
+    $('#backgroundMusic source').src = config.music;
+    $('#specialVideo').load();
+  } catch (error) {}
 
 function createAtmosphere() {
   const sets = [
