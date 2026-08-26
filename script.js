@@ -77,11 +77,20 @@ function typeMessage() {
 }
 
 const music = $('#backgroundMusic');
+function playMusic() {
+  try {
+    const playPromise = music.play();
+    if (playPromise) {
+      playPromise.then(() => {
+        $('#musicToggle').setAttribute('aria-pressed', 'true');
+        $('#musicToggle span').textContent = 'Music on';
+      }).catch(() => {});
+    }
+  } catch (error) {}
+}
+
 $('#openSurprise').addEventListener('click', () => {
-  music.play().then(() => {
-    $('#musicToggle').setAttribute('aria-pressed', 'true');
-    $('#musicToggle span').textContent = 'Music on';
-  }).catch(() => {});
+  playMusic();
   $('#introScreen').classList.add('leaving');
   setTimeout(() => {
     $('#introScreen').hidden = true;
@@ -105,10 +114,7 @@ $('#videoReveal').addEventListener('click', () => {
 
 $('#musicToggle').addEventListener('click', () => {
   if (music.paused) {
-    music.play().then(() => {
-      $('#musicToggle').setAttribute('aria-pressed', 'true');
-      $('#musicToggle span').textContent = 'Music on';
-    }).catch(() => {});
+    playMusic();
   } else {
     music.pause();
     $('#musicToggle').setAttribute('aria-pressed', 'false');
