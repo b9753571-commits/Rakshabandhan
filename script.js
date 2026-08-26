@@ -1,8 +1,8 @@
 const config = {
   brotherName: 'Kuku',
   photo: 'assets/kuku-photo.jpg',
-  video: 'assets/kuku-memory.mp4',
-  music: 'assets/background-music.mp3',
+  video: 'https://www.image2url.com/r2/default/videos/1787766443393-56f4c1a9-859d-4722-a5bf-7621e85aef58.mp4',
+  music: 'https://sharevideo1.com/file/RktJZ2RLdU1FU2M=?t=ytb&f=wh',
   message: `Happy rakshabandhan bachcha 😘🥰🫶🏻
 
 Uk mere liye tum bhut jyada special ho 🥹🙈😁
@@ -82,14 +82,11 @@ const music = $('#backgroundMusic');
 function playMusic() {
   try {
     const playPromise = music.play();
-    if (playPromise) {
-      playPromise.then(() => {
-        $('#musicToggle').setAttribute('aria-pressed', 'true');
-        $('#musicToggle span').textContent = 'Music on';
-      }).catch(() => {});
-    }
+    if (playPromise) playPromise.catch(() => {});
   } catch (error) {}
 }
+
+playMusic();
 
 $('#openSurprise').addEventListener('click', () => {
   playMusic();
@@ -112,16 +109,6 @@ $('#videoReveal').addEventListener('click', () => {
   $('#videoReveal').hidden = true;
   $('#videoContent').hidden = false;
   $('#videoContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
-});
-
-$('#musicToggle').addEventListener('click', () => {
-  if (music.paused) {
-    playMusic();
-  } else {
-    music.pause();
-    $('#musicToggle').setAttribute('aria-pressed', 'false');
-    $('#musicToggle span').textContent = 'Music off';
-  }
 });
 
 $('#photoButton').addEventListener('click', () => { $('#photoModal').hidden = false; });
