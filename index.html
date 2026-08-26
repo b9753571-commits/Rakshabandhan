@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff5f1">
+  <meta name="description" content="A Raksha Bandhan surprise for Kuku">
+  <title>For Kuku, with love</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="petal-field" aria-hidden="true"></div>
+  <div class="sparkle-field" aria-hidden="true"></div>
+  <div class="heart-field" aria-hidden="true"></div>
+
+  <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false" title="Turn music on or off">🎵 <span>Music on</span></button>
+  <audio id="backgroundMusic" loop preload="none">
+    <!-- Replace this file with your background music. -->
+    <source src="assets/background-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <main>
+    <section class="screen intro-screen is-active" id="introScreen" aria-labelledby="introTitle">
+      <div class="rakhi-mark" aria-hidden="true"><span>✦</span> 🎀 <span>✦</span></div>
+      <p class="eyebrow">A little something, wrapped with love</p>
+      <h1 id="introTitle">Hey <span data-brother-name>Kuku</span> <span class="title-emoji">👀❤️</span></h1>
+      <p class="intro-copy">Someone has something special<br>for you... <span>🥹🫶🏻</span></p>
+      <button class="primary-button" id="openSurprise" type="button"><span>🎁</span> Open Your Surprise</button>
+      <p class="tiny-note">made just for you</p>
+    </section>
+
+    <section class="screen message-screen" id="messageScreen" aria-labelledby="messageTitle" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">A thread that ties two hearts</p>
+        <h2 id="messageTitle">Happy Rakshabandhan<br><em>Bachcha</em> <span>😘🥰🫶🏻</span></h2>
+        <div class="heading-rule" aria-hidden="true"><span></span> 🎀 <span></span></div>
+      </div>
+      <button class="outline-button" id="readMessage" type="button">💌 Read My Message</button>
+
+      <article class="letter-card" id="letterCard" aria-live="polite" hidden>
+        <div class="card-stamp">FOR KUKU · WITH LOVE</div>
+        <div class="message-copy" id="messageCopy"></div>
+        <div class="letter-signoff">🫂 Happy Raksha Bandhan, <span data-brother-name>Kuku</span> ❤️</div>
+      </article>
+
+      <div class="memory-content" id="memoryContent" hidden>
+        <button class="photo-frame" id="photoButton" type="button" aria-label="Open the special photo full screen">
+          <span class="photo-glow"></span>
+          <img src="assets/kuku-photo.svg" alt="A special memory for Kuku" id="specialPhoto">
+          <span class="photo-caption">our little world</span>
+        </button>
+        <button class="surprise-button" id="videoReveal" type="button">🎬 One More Surprise <span>→</span></button>
+      </div>
+
+      <div class="video-content" id="videoContent" hidden>
+        <p class="video-kicker">🥹 A small memory for you, <span data-brother-name>Kuku</span> ❤️</p>
+        <div class="video-shell">
+          <video id="specialVideo" controls playsinline preload="metadata" poster="assets/video-poster.svg">
+            <!-- Replace this file with your one special video. -->
+            <source src="assets/kuku-memory.mp4" type="video/mp4">
+            Your browser does not support the video element.
+          </video>
+        </div>
+        <section class="final-wish" aria-labelledby="finalTitle">
+          <div class="final-sparkles" aria-hidden="true">✦ ✧ ✦</div>
+          <h2 id="finalTitle">Love You Bhut Sara<br>Meri Jaan <span>🥹🫶🏻🫂💟</span></h2>
+          <p>Tu jitna bhi preshan kare 😒😂<br>Mera chota bhai aur favourite bachcha toh tu hi rahega 😌❤️</p>
+          <div class="final-rakhi" aria-hidden="true">🎀</div>
+          <h3>HAPPY RAKSHA BANDHAN<br><span data-brother-name>KUKU</span> ❤️🫂</h3>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div class="photo-modal" id="photoModal" role="dialog" aria-modal="true" aria-label="Special photo" hidden>
+    <button class="close-modal" id="closeModal" type="button" aria-label="Close photo preview">×</button>
+    <img src="assets/kuku-photo.svg" alt="A special memory for Kuku" id="modalPhoto">
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
