@@ -25,13 +25,15 @@ Love uhh bhut sara meri jaan 🥹🫶🏻🫂💟`
 };
 
 const $ = (selector) => document.querySelector(selector);
-const nameNodes = document.querySelectorAll('[data-brother-name]');
-nameNodes.forEach((node) => { node.textContent = node.textContent === 'KUKU' ? config.brotherName.toUpperCase() : config.brotherName; });
-$('#specialPhoto').src = config.photo;
-$('#modalPhoto').src = config.photo;
-$('#specialVideo source').src = config.video;
-$('#backgroundMusic source').src = config.music;
-$('#specialVideo').load();
+
+function init() {
+  const nameNodes = document.querySelectorAll('[data-brother-name]');
+  nameNodes.forEach((node) => { node.textContent = node.textContent === 'KUKU' ? config.brotherName.toUpperCase() : config.brotherName; });
+  $('#specialPhoto').src = config.photo;
+  $('#modalPhoto').src = config.photo;
+  $('#specialVideo source').src = config.video;
+  $('#backgroundMusic source').src = config.music;
+  $('#specialVideo').load();
 
 function createAtmosphere() {
   const sets = [
@@ -118,4 +120,11 @@ $('#photoButton').addEventListener('click', () => { $('#photoModal').hidden = fa
 $('#closeModal').addEventListener('click', () => { $('#photoModal').hidden = true; });
 $('#photoModal').addEventListener('click', (event) => { if (event.target === $('#photoModal')) $('#photoModal').hidden = true; });
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') $('#photoModal').hidden = true; });
-createAtmosphere();
+  createAtmosphere();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
